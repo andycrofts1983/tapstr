@@ -187,6 +187,41 @@
         
         console.log('Created', bubbleCount, 'bubbles');
         console.log('First bubble animation:', document.querySelector('.bubble').style.animation);
+        
+        // Force animation restart on iOS - this fixes the stuck bubbles issue
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var bubbles = document.querySelectorAll('.bubble');
+                bubbles.forEach(function(bubble) {
+                    var anim = bubble.style.animation;
+                    bubble.style.animation = 'none';
+                    bubble.offsetHeight; // Trigger reflow
+                    bubble.style.animation = anim;
+                });
+            }, 100);
+        });
+
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                var bubbles = document.querySelectorAll('.bubble');
+                bubbles.forEach(function(bubble) {
+                    var anim = bubble.style.animation;
+                    bubble.style.animation = 'none';
+                    bubble.offsetHeight;
+                    bubble.style.animation = anim;
+                });
+            }
+        });
+
+        window.addEventListener('pageshow', function(event) {
+            var bubbles = document.querySelectorAll('.bubble');
+            bubbles.forEach(function(bubble) {
+                var anim = bubble.style.animation;
+                bubble.style.animation = 'none';
+                bubble.offsetHeight;
+                bubble.style.animation = anim;
+            });
+        });
     </script>
 </body>
 </html>
