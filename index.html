@@ -41,28 +41,28 @@
             background: radial-gradient(circle at 30% 30%, rgba(255, 223, 128, 0.9), rgba(232, 185, 70, 0.6));
             border-radius: 50%;
             position: absolute;
-            bottom: -50px;
+            bottom: -100px;
             box-shadow: 0 0 20px rgba(232, 185, 70, 0.5);
             animation: rise linear infinite;
         }
 
         @keyframes rise {
             0% {
-                bottom: -50px;
+                bottom: -100px;
                 opacity: 0;
                 transform: translateX(0);
             }
-            10% {
+            5% {
                 opacity: 1;
             }
             50% {
                 transform: translateX(20px);
             }
-            90% {
+            95% {
                 opacity: 1;
             }
             100% {
-                bottom: calc(100vh + 50px);
+                bottom: 110vh;
                 opacity: 0;
                 transform: translateX(0);
             }
@@ -70,21 +70,21 @@
 
         @keyframes riseLeft {
             0% {
-                bottom: -50px;
+                bottom: -100px;
                 opacity: 0;
                 transform: translateX(0);
             }
-            10% {
+            5% {
                 opacity: 1;
             }
             50% {
                 transform: translateX(-20px);
             }
-            90% {
+            95% {
                 opacity: 1;
             }
             100% {
-                bottom: calc(100vh + 50px);
+                bottom: 110vh;
                 opacity: 0;
                 transform: translateX(0);
             }
@@ -92,17 +92,17 @@
 
         @keyframes riseCenter {
             0% {
-                bottom: -50px;
+                bottom: -100px;
                 opacity: 0;
             }
-            10% {
+            5% {
                 opacity: 1;
             }
-            90% {
+            95% {
                 opacity: 1;
             }
             100% {
-                bottom: calc(100vh + 50px);
+                bottom: 110vh;
                 opacity: 0;
             }
         }
