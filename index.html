@@ -25,11 +25,14 @@
         }
 
         #bubbles {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
+            top: 0;
+            left: 0;
             overflow: hidden;
             z-index: 1;
+            pointer-events: none;
         }
 
         .bubble {
@@ -40,821 +43,56 @@
             position: absolute;
             bottom: -50px;
             box-shadow: 0 0 20px rgba(232, 185, 70, 0.5);
-        }
-
-        .bubble.x1 {
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            animation: rise 8s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0s;
-        }
-
-        .bubble.x2 {
-            left: 20%;
-            width: 12px;
-            height: 12px;
-            animation: rise 10s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1s;
-        }
-
-        .bubble.x3 {
-            left: 30%;
-            width: 18px;
-            height: 18px;
-            animation: rise 7s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2s;
-        }
-
-        .bubble.x4 {
-            left: 40%;
-            width: 14px;
-            height: 14px;
-            animation: rise 9s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 0.5s;
-        }
-
-        .bubble.x5 {
-            left: 50%;
-            width: 16px;
-            height: 16px;
-            animation: rise 11s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 1.5s;
-        }
-
-        .bubble.x6 {
-            left: 60%;
-            width: 22px;
-            height: 22px;
-            animation: rise 6s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 3s;
-        }
-
-        .bubble.x7 {
-            left: 70%;
-            width: 13px;
-            height: 13px;
-            animation: rise 12s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 0.8s;
-        }
-
-        .bubble.x8 {
-            left: 80%;
-            width: 17px;
-            height: 17px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 2.5s;
-        }
-
-        .bubble.x9 {
-            left: 15%;
-            width: 19px;
-            height: 19px;
-            animation: rise 7.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.2s;
-        }
-
-        .bubble.x10 {
-            left: 85%;
-            width: 15px;
-            height: 15px;
-            animation: rise 10.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3.5s;
-        }
-
-        .bubble.x11 {
-            left: 25%;
-            width: 21px;
-            height: 21px;
-            animation: rise 9.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.3s;
-        }
-
-        .bubble.x12 {
-            left: 35%;
-            width: 16px;
-            height: 16px;
-            animation: rise 11.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.8s;
-        }
-
-        .bubble.x13 {
-            left: 55%;
-            width: 14px;
-            height: 14px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1.8s;
-        }
-
-        .bubble.x14 {
-            left: 65%;
-            width: 18px;
-            height: 18px;
-            animation: rise 7s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 0.2s;
-        }
-
-        .bubble.x15 {
-            left: 75%;
-            width: 20px;
-            height: 20px;
-            animation: rise 10s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3.2s;
-        }
-
-        .bubble.x16 {
-            left: 5%;
-            width: 17px;
-            height: 17px;
-            animation: rise 9s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 0.6s;
-        }
-
-        .bubble.x17 {
-            left: 12%;
-            width: 13px;
-            height: 13px;
-            animation: rise 11s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.2s;
-        }
-
-        .bubble.x18 {
-            left: 22%;
-            width: 19px;
-            height: 19px;
-            animation: rise 7.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 1.4s;
-        }
-
-        .bubble.x19 {
-            left: 28%;
-            width: 15px;
-            height: 15px;
-            animation: rise 10.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3.8s;
-        }
-
-        .bubble.x20 {
-            left: 33%;
-            width: 21px;
-            height: 21px;
-            animation: rise 8.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 0.9s;
-        }
-
-        .bubble.x21 {
-            left: 38%;
-            width: 14px;
-            height: 14px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.6s;
-        }
-
-        .bubble.x22 {
-            left: 43%;
-            width: 18px;
-            height: 18px;
-            animation: rise 7s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1.1s;
-        }
-
-        .bubble.x23 {
-            left: 47%;
-            width: 16px;
-            height: 16px;
-            animation: rise 11.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 3.4s;
-        }
-
-        .bubble.x24 {
-            left: 52%;
-            width: 20px;
-            height: 20px;
-            animation: rise 8s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0.4s;
-        }
-
-        .bubble.x25 {
-            left: 57%;
-            width: 12px;
-            height: 12px;
-            animation: rise 10s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 2.9s;
-        }
-
-        .bubble.x26 {
-            left: 62%;
-            width: 17px;
-            height: 17px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 1.6s;
-        }
-
-        .bubble.x27 {
-            left: 67%;
-            width: 19px;
-            height: 19px;
-            animation: rise 7.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 3.1s;
-        }
-
-        .bubble.x28 {
-            left: 72%;
-            width: 15px;
-            height: 15px;
-            animation: rise 11s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0.7s;
-        }
-
-        .bubble.x29 {
-            left: 77%;
-            width: 21px;
-            height: 21px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 2.4s;
-        }
-
-        .bubble.x30 {
-            left: 82%;
-            width: 14px;
-            height: 14px;
-            animation: rise 10.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.3s;
-        }
-
-        .bubble.x31 {
-            left: 87%;
-            width: 18px;
-            height: 18px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 3.6s;
-        }
-
-        .bubble.x32 {
-            left: 92%;
-            width: 16px;
-            height: 16px;
-            animation: rise 7s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.1s;
-        }
-
-        .bubble.x33 {
-            left: 8%;
-            width: 13px;
-            height: 13px;
-            animation: rise 11.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 2.7s;
-        }
-
-        .bubble.x34 {
-            left: 17%;
-            width: 20px;
-            height: 20px;
-            animation: rise 8s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.9s;
-        }
-
-        .bubble.x35 {
-            left: 27%;
-            width: 15px;
-            height: 15px;
-            animation: rise 10s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 3.3s;
-        }
-
-        .bubble.x36 {
-            left: 37%;
-            width: 17px;
-            height: 17px;
-            animation: rise 9s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.8s;
-        }
-
-        .bubble.x37 {
-            left: 45%;
-            width: 19px;
-            height: 19px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 2.3s;
-        }
-
-        .bubble.x38 {
-            left: 53%;
-            width: 14px;
-            height: 14px;
-            animation: rise 11s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1.7s;
-        }
-
-        .bubble.x39 {
-            left: 63%;
-            width: 21px;
-            height: 21px;
-            animation: rise 8.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 3.9s;
-        }
-
-        .bubble.x40 {
-            left: 73%;
-            width: 16px;
-            height: 16px;
-            animation: rise 10.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 1.5s;
-        }
-
-        .bubble.x41 {
-            left: 83%;
-            width: 18px;
-            height: 18px;
-            animation: rise 9.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 2.1s;
-        }
-
-        .bubble.x42 {
-            left: 90%;
-            width: 12px;
-            height: 12px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0.5s;
-        }
-
-        .bubble.x43 {
-            left: 3%;
-            width: 20px;
-            height: 20px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 3.7s;
-        }
-
-        .bubble.x44 {
-            left: 13%;
-            width: 15px;
-            height: 15px;
-            animation: rise 8s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.5s;
-        }
-
-        .bubble.x45 {
-            left: 95%;
-            width: 17px;
-            height: 17px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 1s;
-        }
-
-        .bubble.x46 {
-            left: 6%;
-            width: 19px;
-            height: 19px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.8s;
-        }
-
-        .bubble.x47 {
-            left: 11%;
-            width: 14px;
-            height: 14px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 0.3s;
-        }
-
-        .bubble.x48 {
-            left: 16%;
-            width: 21px;
-            height: 21px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 3.5s;
-        }
-
-        .bubble.x49 {
-            left: 21%;
-            width: 13px;
-            height: 13px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 1.2s;
-        }
-
-        .bubble.x50 {
-            left: 26%;
-            width: 18px;
-            height: 18px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 2.7s;
-        }
-
-        .bubble.x51 {
-            left: 31%;
-            width: 16px;
-            height: 16px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 0.9s;
-        }
-
-        .bubble.x52 {
-            left: 36%;
-            width: 20px;
-            height: 20px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 3.8s;
-        }
-
-        .bubble.x53 {
-            left: 41%;
-            width: 15px;
-            height: 15px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.8s;
-        }
-
-        .bubble.x54 {
-            left: 46%;
-            width: 17px;
-            height: 17px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 2.3s;
-        }
-
-        .bubble.x55 {
-            left: 51%;
-            width: 19px;
-            height: 19px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.6s;
-        }
-
-        .bubble.x56 {
-            left: 56%;
-            width: 14px;
-            height: 14px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 3.2s;
-        }
-
-        .bubble.x57 {
-            left: 61%;
-            width: 21px;
-            height: 21px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1.4s;
-        }
-
-        .bubble.x58 {
-            left: 66%;
-            width: 12px;
-            height: 12px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 2.9s;
-        }
-
-        .bubble.x59 {
-            left: 71%;
-            width: 18px;
-            height: 18px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0.2s;
-        }
-
-        .bubble.x60 {
-            left: 76%;
-            width: 16px;
-            height: 16px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 3.4s;
-        }
-
-        .bubble.x61 {
-            left: 81%;
-            width: 15px;
-            height: 15px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 1.1s;
-        }
-
-        .bubble.x62 {
-            left: 86%;
-            width: 20px;
-            height: 20px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 2.6s;
-        }
-
-        .bubble.x63 {
-            left: 91%;
-            width: 17px;
-            height: 17px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 0.4s;
-        }
-
-        .bubble.x64 {
-            left: 4%;
-            width: 14px;
-            height: 14px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3.1s;
-        }
-
-        .bubble.x65 {
-            left: 9%;
-            width: 19px;
-            height: 19px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 1.7s;
-        }
-
-        .bubble.x66 {
-            left: 14%;
-            width: 13px;
-            height: 13px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.4s;
-        }
-
-        .bubble.x67 {
-            left: 19%;
-            width: 21px;
-            height: 21px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 0.7s;
-        }
-
-        .bubble.x68 {
-            left: 24%;
-            width: 16px;
-            height: 16px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 3.6s;
-        }
-
-        .bubble.x69 {
-            left: 29%;
-            width: 18px;
-            height: 18px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 1.3s;
-        }
-
-        .bubble.x70 {
-            left: 34%;
-            width: 15px;
-            height: 15px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 2.8s;
-        }
-
-        .bubble.x71 {
-            left: 39%;
-            width: 20px;
-            height: 20px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 0.5s;
-        }
-
-        .bubble.x72 {
-            left: 44%;
-            width: 12px;
-            height: 12px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 3.3s;
-        }
-
-        .bubble.x73 {
-            left: 49%;
-            width: 17px;
-            height: 17px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.9s;
-        }
-
-        .bubble.x74 {
-            left: 54%;
-            width: 19px;
-            height: 19px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 2.5s;
-        }
-
-        .bubble.x75 {
-            left: 59%;
-            width: 14px;
-            height: 14px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.8s;
-        }
-
-        .bubble.x76 {
-            left: 64%;
-            width: 21px;
-            height: 21px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 3.7s;
-        }
-
-        .bubble.x77 {
-            left: 69%;
-            width: 16px;
-            height: 16px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 1.5s;
-        }
-
-        .bubble.x78 {
-            left: 74%;
-            width: 18px;
-            height: 18px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 2.2s;
-        }
-
-        .bubble.x79 {
-            left: 79%;
-            width: 13px;
-            height: 13px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 0.3s;
-        }
-
-        .bubble.x80 {
-            left: 84%;
-            width: 20px;
-            height: 20px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 3.9s;
-        }
-
-        .bubble.x81 {
-            left: 89%;
-            width: 15px;
-            height: 15px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 1.6s;
-        }
-
-        .bubble.x82 {
-            left: 94%;
-            width: 17px;
-            height: 17px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 2.9s;
-        }
-
-        .bubble.x83 {
-            left: 2%;
-            width: 19px;
-            height: 19px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 0.6s;
-        }
-
-        .bubble.x84 {
-            left: 7%;
-            width: 14px;
-            height: 14px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3.2s;
-        }
-
-        .bubble.x85 {
-            left: 18%;
-            width: 21px;
-            height: 21px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 1.8s;
-        }
-
-        .bubble.x86 {
-            left: 23%;
-            width: 16px;
-            height: 16px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 2.7s;
-        }
-
-        .bubble.x87 {
-            left: 32%;
-            width: 18px;
-            height: 18px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 0.9s;
-        }
-
-        .bubble.x88 {
-            left: 42%;
-            width: 12px;
-            height: 12px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 3.5s;
-        }
-
-        .bubble.x89 {
-            left: 48%;
-            width: 20px;
-            height: 20px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 1.4s;
-        }
-
-        .bubble.x90 {
-            left: 58%;
-            width: 15px;
-            height: 15px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 2.3s;
-        }
-
-        .bubble.x91 {
-            left: 68%;
-            width: 17px;
-            height: 17px;
-            animation: rise 9s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 0.2s;
-        }
-
-        .bubble.x92 {
-            left: 78%;
-            width: 19px;
-            height: 19px;
-            animation: rise 8s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 3.8s;
-        }
-
-        .bubble.x93 {
-            left: 88%;
-            width: 14px;
-            height: 14px;
-            animation: rise 11s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1.2s;
-        }
-
-        .bubble.x94 {
-            left: 96%;
-            width: 21px;
-            height: 21px;
-            animation: rise 7.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 2.6s;
-        }
-
-        .bubble.x95 {
-            left: 1%;
-            width: 16px;
-            height: 16px;
-            animation: rise 10.5s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 0.1s;
-        }
-
-        .bubble.x96 {
-            left: 98%;
-            width: 18px;
-            height: 18px;
-            animation: rise 9.5s linear infinite, sideWays 2.5s ease-in-out infinite alternate;
-            animation-delay: 3.4s;
-        }
-
-        .bubble.x97 {
-            left: 97%;
-            width: 13px;
-            height: 13px;
-            animation: rise 8.5s linear infinite, sideWays 3s ease-in-out infinite alternate;
-            animation-delay: 2.1s;
-        }
-
-        .bubble.x98 {
-            left: 99%;
-            width: 20px;
-            height: 20px;
-            animation: rise 11.5s linear infinite, sideWays 3.5s ease-in-out infinite alternate;
-            animation-delay: 1s;
-        }
-
-        .bubble.x99 {
-            left: 93%;
-            width: 15px;
-            height: 15px;
-            animation: rise 7s linear infinite, sideWays 2s ease-in-out infinite alternate;
-            animation-delay: 3s;
-        }
-
-        .bubble.x100 {
-            left: 50%;
-            width: 17px;
-            height: 17px;
-            animation: rise 10s linear infinite, sideWays 4s ease-in-out infinite alternate;
-            animation-delay: 2s;
-        }
-
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 2;
+            animation: rise linear infinite;
         }
 
         @keyframes rise {
             0% {
-                bottom: -100px;
+                bottom: -50px;
+                opacity: 0;
+                transform: translateX(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: calc(100vh + 50px);
+                opacity: 0;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes riseLeft {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+                transform: translateX(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-20px);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: calc(100vh + 50px);
+                opacity: 0;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes riseCenter {
+            0% {
+                bottom: -50px;
                 opacity: 0;
             }
             10% {
@@ -864,18 +102,50 @@
                 opacity: 1;
             }
             100% {
-                bottom: 120vh;
+                bottom: calc(100vh + 50px);
                 opacity: 0;
             }
         }
 
-        @keyframes sideWays {
-            0% {
-                margin-left: 0px;
-            }
-            100% {
-                margin-left: 25px;
-            }
+        /* Individual bubble styles with varied properties */
+        .bubble:nth-child(4n+1) { left: 5%; animation-duration: 8s; animation-delay: 0s; width: 18px; height: 18px; animation-name: rise; }
+        .bubble:nth-child(4n+2) { left: 15%; animation-duration: 10s; animation-delay: 1s; width: 14px; height: 14px; animation-name: riseLeft; }
+        .bubble:nth-child(4n+3) { left: 25%; animation-duration: 7s; animation-delay: 2s; width: 16px; height: 16px; animation-name: riseCenter; }
+        .bubble:nth-child(4n) { left: 35%; animation-duration: 9s; animation-delay: 0.5s; width: 20px; height: 20px; animation-name: rise; }
+        
+        .bubble:nth-child(10n+1) { left: 8%; }
+        .bubble:nth-child(10n+2) { left: 18%; }
+        .bubble:nth-child(10n+3) { left: 28%; }
+        .bubble:nth-child(10n+4) { left: 38%; }
+        .bubble:nth-child(10n+5) { left: 48%; }
+        .bubble:nth-child(10n+6) { left: 58%; }
+        .bubble:nth-child(10n+7) { left: 68%; }
+        .bubble:nth-child(10n+8) { left: 78%; }
+        .bubble:nth-child(10n+9) { left: 88%; }
+        .bubble:nth-child(10n) { left: 98%; }
+
+        .bubble:nth-child(7n+1) { animation-delay: 0.2s; }
+        .bubble:nth-child(7n+2) { animation-delay: 1.4s; }
+        .bubble:nth-child(7n+3) { animation-delay: 2.8s; }
+        .bubble:nth-child(7n+4) { animation-delay: 0.9s; }
+        .bubble:nth-child(7n+5) { animation-delay: 2.1s; }
+        .bubble:nth-child(7n+6) { animation-delay: 3.5s; }
+        .bubble:nth-child(7n) { animation-delay: 1.7s; }
+
+        .bubble:nth-child(13n+1) { animation-duration: 7.5s; }
+        .bubble:nth-child(13n+2) { animation-duration: 9.5s; }
+        .bubble:nth-child(13n+3) { animation-duration: 11s; }
+        .bubble:nth-child(13n+4) { animation-duration: 8.5s; }
+        .bubble:nth-child(13n+5) { animation-duration: 10.5s; }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2;
         }
 
         .container {
@@ -958,106 +228,27 @@
 </head>
 <body>
     <div id="bubbles">
-        <div class="bubble x1"></div>
-        <div class="bubble x2"></div>
-        <div class="bubble x3"></div>
-        <div class="bubble x4"></div>
-        <div class="bubble x5"></div>
-        <div class="bubble x6"></div>
-        <div class="bubble x7"></div>
-        <div class="bubble x8"></div>
-        <div class="bubble x9"></div>
-        <div class="bubble x10"></div>
-        <div class="bubble x11"></div>
-        <div class="bubble x12"></div>
-        <div class="bubble x13"></div>
-        <div class="bubble x14"></div>
-        <div class="bubble x15"></div>
-        <div class="bubble x16"></div>
-        <div class="bubble x17"></div>
-        <div class="bubble x18"></div>
-        <div class="bubble x19"></div>
-        <div class="bubble x20"></div>
-        <div class="bubble x21"></div>
-        <div class="bubble x22"></div>
-        <div class="bubble x23"></div>
-        <div class="bubble x24"></div>
-        <div class="bubble x25"></div>
-        <div class="bubble x26"></div>
-        <div class="bubble x27"></div>
-        <div class="bubble x28"></div>
-        <div class="bubble x29"></div>
-        <div class="bubble x30"></div>
-        <div class="bubble x31"></div>
-        <div class="bubble x32"></div>
-        <div class="bubble x33"></div>
-        <div class="bubble x34"></div>
-        <div class="bubble x35"></div>
-        <div class="bubble x36"></div>
-        <div class="bubble x37"></div>
-        <div class="bubble x38"></div>
-        <div class="bubble x39"></div>
-        <div class="bubble x40"></div>
-        <div class="bubble x41"></div>
-        <div class="bubble x42"></div>
-        <div class="bubble x43"></div>
-        <div class="bubble x44"></div>
-        <div class="bubble x45"></div>
-        <div class="bubble x46"></div>
-        <div class="bubble x47"></div>
-        <div class="bubble x48"></div>
-        <div class="bubble x49"></div>
-        <div class="bubble x50"></div>
-        <div class="bubble x51"></div>
-        <div class="bubble x52"></div>
-        <div class="bubble x53"></div>
-        <div class="bubble x54"></div>
-        <div class="bubble x55"></div>
-        <div class="bubble x56"></div>
-        <div class="bubble x57"></div>
-        <div class="bubble x58"></div>
-        <div class="bubble x59"></div>
-        <div class="bubble x60"></div>
-        <div class="bubble x61"></div>
-        <div class="bubble x62"></div>
-        <div class="bubble x63"></div>
-        <div class="bubble x64"></div>
-        <div class="bubble x65"></div>
-        <div class="bubble x66"></div>
-        <div class="bubble x67"></div>
-        <div class="bubble x68"></div>
-        <div class="bubble x69"></div>
-        <div class="bubble x70"></div>
-        <div class="bubble x71"></div>
-        <div class="bubble x72"></div>
-        <div class="bubble x73"></div>
-        <div class="bubble x74"></div>
-        <div class="bubble x75"></div>
-        <div class="bubble x76"></div>
-        <div class="bubble x77"></div>
-        <div class="bubble x78"></div>
-        <div class="bubble x79"></div>
-        <div class="bubble x80"></div>
-        <div class="bubble x81"></div>
-        <div class="bubble x82"></div>
-        <div class="bubble x83"></div>
-        <div class="bubble x84"></div>
-        <div class="bubble x85"></div>
-        <div class="bubble x86"></div>
-        <div class="bubble x87"></div>
-        <div class="bubble x88"></div>
-        <div class="bubble x89"></div>
-        <div class="bubble x90"></div>
-        <div class="bubble x91"></div>
-        <div class="bubble x92"></div>
-        <div class="bubble x93"></div>
-        <div class="bubble x94"></div>
-        <div class="bubble x95"></div>
-        <div class="bubble x96"></div>
-        <div class="bubble x97"></div>
-        <div class="bubble x98"></div>
-        <div class="bubble x99"></div>
-        <div class="bubble x100"></div>
+        <!-- 100 bubbles -->
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
     </div>
     
     <div id="overlay"></div>
