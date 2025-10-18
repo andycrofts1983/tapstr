@@ -180,8 +180,8 @@
             bubble.className = 'bubble';
             bubble.style.left = positions[i] + '%';
             bubble.style.opacity = opacities[i];
-            bubble.style.animation = `rise ${durations[i]}ms linear ${delays[i]}ms infinite`;
-            bubble.style.webkitAnimation = `rise ${durations[i]}ms linear ${delays[i]}ms infinite`;
+            bubble.style.animation = `rise ${durations[i]}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delays[i]}ms infinite`;
+            bubble.style.webkitAnimation = `rise ${durations[i]}ms cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delays[i]}ms infinite`;
             bubblesContainer.appendChild(bubble);
         }
         
