@@ -24,116 +24,246 @@
             position: relative;
         }
 
-        #bubbles {
-            position: fixed;
+        .bottom-particles {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
             z-index: 1;
             pointer-events: none;
         }
 
         .bubble {
-            width: 15px;
-            height: 15px;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 223, 128, 0.9), rgba(232, 185, 70, 0.6));
-            border-radius: 50%;
+            opacity: 0;
             position: absolute;
-            top: 100vh;
-            box-shadow: 0 0 20px rgba(232, 185, 70, 0.5);
-            animation: rise linear infinite;
-            will-change: transform;
+            bottom: -1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 223, 128, 1), rgba(232, 185, 70, 0.8));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(232, 185, 70, 0.8);
+            animation: blow 10000ms infinite;
         }
 
-        @keyframes rise {
+        /* Generate 100 bubbles with random positions, speeds, and delays */
+        .bubble:nth-child(1) { left: 5%; animation-duration: 8500ms; animation-delay: 200ms; }
+        .bubble:nth-child(2) { left: 12%; animation-duration: 11000ms; animation-delay: 1500ms; }
+        .bubble:nth-child(3) { left: 18%; animation-duration: 9200ms; animation-delay: 800ms; }
+        .bubble:nth-child(4) { left: 25%; animation-duration: 13000ms; animation-delay: 3200ms; }
+        .bubble:nth-child(5) { left: 31%; animation-duration: 7800ms; animation-delay: 600ms; }
+        .bubble:nth-child(6) { left: 38%; animation-duration: 10500ms; animation-delay: 2100ms; }
+        .bubble:nth-child(7) { left: 44%; animation-duration: 12000ms; animation-delay: 1800ms; }
+        .bubble:nth-child(8) { left: 51%; animation-duration: 8800ms; animation-delay: 900ms; }
+        .bubble:nth-child(9) { left: 57%; animation-duration: 11500ms; animation-delay: 2700ms; }
+        .bubble:nth-child(10) { left: 64%; animation-duration: 9600ms; animation-delay: 1200ms; }
+        .bubble:nth-child(11) { left: 70%; animation-duration: 10200ms; animation-delay: 3000ms; }
+        .bubble:nth-child(12) { left: 77%; animation-duration: 13500ms; animation-delay: 400ms; }
+        .bubble:nth-child(13) { left: 83%; animation-duration: 8200ms; animation-delay: 2400ms; }
+        .bubble:nth-child(14) { left: 90%; animation-duration: 11800ms; animation-delay: 1600ms; }
+        .bubble:nth-child(15) { left: 96%; animation-duration: 9800ms; animation-delay: 2900ms; }
+        .bubble:nth-child(16) { left: 3%; animation-duration: 12500ms; animation-delay: 700ms; }
+        .bubble:nth-child(17) { left: 9%; animation-duration: 10800ms; animation-delay: 3400ms; }
+        .bubble:nth-child(18) { left: 16%; animation-duration: 8600ms; animation-delay: 1100ms; }
+        .bubble:nth-child(19) { left: 22%; animation-duration: 11200ms; animation-delay: 2200ms; }
+        .bubble:nth-child(20) { left: 29%; animation-duration: 9400ms; animation-delay: 1400ms; }
+        .bubble:nth-child(21) { left: 35%; animation-duration: 13200ms; animation-delay: 500ms; }
+        .bubble:nth-child(22) { left: 42%; animation-duration: 10000ms; animation-delay: 2800ms; }
+        .bubble:nth-child(23) { left: 48%; animation-duration: 8900ms; animation-delay: 1900ms; }
+        .bubble:nth-child(24) { left: 55%; animation-duration: 12200ms; animation-delay: 3100ms; }
+        .bubble:nth-child(25) { left: 61%; animation-duration: 11400ms; animation-delay: 1000ms; }
+        .bubble:nth-child(26) { left: 68%; animation-duration: 9100ms; animation-delay: 2600ms; }
+        .bubble:nth-child(27) { left: 74%; animation-duration: 10700ms; animation-delay: 300ms; }
+        .bubble:nth-child(28) { left: 81%; animation-duration: 12800ms; animation-delay: 2000ms; }
+        .bubble:nth-child(29) { left: 87%; animation-duration: 8400ms; animation-delay: 1300ms; }
+        .bubble:nth-child(30) { left: 94%; animation-duration: 11600ms; animation-delay: 3600ms; }
+        .bubble:nth-child(31) { left: 7%; animation-duration: 9500ms; animation-delay: 2300ms; }
+        .bubble:nth-child(32) { left: 14%; animation-duration: 13800ms; animation-delay: 800ms; }
+        .bubble:nth-child(33) { left: 20%; animation-duration: 10300ms; animation-delay: 1700ms; }
+        .bubble:nth-child(34) { left: 27%; animation-duration: 8700ms; animation-delay: 3300ms; }
+        .bubble:nth-child(35) { left: 33%; animation-duration: 12400ms; animation-delay: 600ms; }
+        .bubble:nth-child(36) { left: 40%; animation-duration: 11100ms; animation-delay: 2500ms; }
+        .bubble:nth-child(37) { left: 46%; animation-duration: 9900ms; animation-delay: 1500ms; }
+        .bubble:nth-child(38) { left: 53%; animation-duration: 10600ms; animation-delay: 3700ms; }
+        .bubble:nth-child(39) { left: 59%; animation-duration: 12600ms; animation-delay: 900ms; }
+        .bubble:nth-child(40) { left: 66%; animation-duration: 8300ms; animation-delay: 2100ms; }
+        .bubble:nth-child(41) { left: 72%; animation-duration: 11900ms; animation-delay: 400ms; }
+        .bubble:nth-child(42) { left: 79%; animation-duration: 9700ms; animation-delay: 3500ms; }
+        .bubble:nth-child(43) { left: 85%; animation-duration: 10400ms; animation-delay: 1200ms; }
+        .bubble:nth-child(44) { left: 92%; animation-duration: 13400ms; animation-delay: 2700ms; }
+        .bubble:nth-child(45) { left: 98%; animation-duration: 8500ms; animation-delay: 1800ms; }
+        .bubble:nth-child(46) { left: 4%; animation-duration: 12100ms; animation-delay: 3000ms; }
+        .bubble:nth-child(47) { left: 11%; animation-duration: 11700ms; animation-delay: 700ms; }
+        .bubble:nth-child(48) { left: 17%; animation-duration: 9000ms; animation-delay: 2400ms; }
+        .bubble:nth-child(49) { left: 24%; animation-duration: 10900ms; animation-delay: 1600ms; }
+        .bubble:nth-child(50) { left: 30%; animation-duration: 8100ms; animation-delay: 3200ms; }
+        .bubble:nth-child(51) { left: 37%; animation-duration: 13100ms; animation-delay: 500ms; }
+        .bubble:nth-child(52) { left: 43%; animation-duration: 12300ms; animation-delay: 2900ms; }
+        .bubble:nth-child(53) { left: 50%; animation-duration: 9300ms; animation-delay: 1100ms; }
+        .bubble:nth-child(54) { left: 56%; animation-duration: 11000ms; animation-delay: 3800ms; }
+        .bubble:nth-child(55) { left: 63%; animation-duration: 10100ms; animation-delay: 1900ms; }
+        .bubble:nth-child(56) { left: 69%; animation-duration: 8600ms; animation-delay: 2600ms; }
+        .bubble:nth-child(57) { left: 76%; animation-duration: 12700ms; animation-delay: 800ms; }
+        .bubble:nth-child(58) { left: 82%; animation-duration: 11300ms; animation-delay: 3400ms; }
+        .bubble:nth-child(59) { left: 89%; animation-duration: 9200ms; animation-delay: 1400ms; }
+        .bubble:nth-child(60) { left: 95%; animation-duration: 10500ms; animation-delay: 2200ms; }
+        .bubble:nth-child(61) { left: 2%; animation-duration: 13600ms; animation-delay: 600ms; }
+        .bubble:nth-child(62) { left: 8%; animation-duration: 8800ms; animation-delay: 3100ms; }
+        .bubble:nth-child(63) { left: 15%; animation-duration: 12000ms; animation-delay: 1700ms; }
+        .bubble:nth-child(64) { left: 21%; animation-duration: 9600ms; animation-delay: 2800ms; }
+        .bubble:nth-child(65) { left: 28%; animation-duration: 11400ms; animation-delay: 1000ms; }
+        .bubble:nth-child(66) { left: 34%; animation-duration: 10200ms; animation-delay: 3600ms; }
+        .bubble:nth-child(67) { left: 41%; animation-duration: 8400ms; animation-delay: 1300ms; }
+        .bubble:nth-child(68) { left: 47%; animation-duration: 12900ms; animation-delay: 2500ms; }
+        .bubble:nth-child(69) { left: 54%; animation-duration: 11600ms; animation-delay: 400ms; }
+        .bubble:nth-child(70) { left: 60%; animation-duration: 9800ms; animation-delay: 3300ms; }
+        .bubble:nth-child(71) { left: 67%; animation-duration: 10700ms; animation-delay: 1500ms; }
+        .bubble:nth-child(72) { left: 73%; animation-duration: 13300ms; animation-delay: 2000ms; }
+        .bubble:nth-child(73) { left: 80%; animation-duration: 8700ms; animation-delay: 900ms; }
+        .bubble:nth-child(74) { left: 86%; animation-duration: 11800ms; animation-delay: 3700ms; }
+        .bubble:nth-child(75) { left: 93%; animation-duration: 9400ms; animation-delay: 1200ms; }
+        .bubble:nth-child(76) { left: 99%; animation-duration: 12500ms; animation-delay: 2900ms; }
+        .bubble:nth-child(77) { left: 6%; animation-duration: 10800ms; animation-delay: 700ms; }
+        .bubble:nth-child(78) { left: 13%; animation-duration: 8200ms; animation-delay: 3500ms; }
+        .bubble:nth-child(79) { left: 19%; animation-duration: 11200ms; animation-delay: 1800ms; }
+        .bubble:nth-child(80) { left: 26%; animation-duration: 9100ms; animation-delay: 2400ms; }
+        .bubble:nth-child(81) { left: 32%; animation-duration: 13700ms; animation-delay: 600ms; }
+        .bubble:nth-child(82) { left: 39%; animation-duration: 12200ms; animation-delay: 3200ms; }
+        .bubble:nth-child(83) { left: 45%; animation-duration: 10400ms; animation-delay: 1100ms; }
+        .bubble:nth-child(84) { left: 52%; animation-duration: 8900ms; animation-delay: 2700ms; }
+        .bubble:nth-child(85) { left: 58%; animation-duration: 11500ms; animation-delay: 1600ms; }
+        .bubble:nth-child(86) { left: 65%; animation-duration: 9700ms; animation-delay: 3900ms; }
+        .bubble:nth-child(87) { left: 71%; animation-duration: 10300ms; animation-delay: 800ms; }
+        .bubble:nth-child(88) { left: 78%; animation-duration: 12800ms; animation-delay: 2300ms; }
+        .bubble:nth-child(89) { left: 84%; animation-duration: 8500ms; animation-delay: 1400ms; }
+        .bubble:nth-child(90) { left: 91%; animation-duration: 11100ms; animation-delay: 3400ms; }
+        .bubble:nth-child(91) { left: 97%; animation-duration: 9500ms; animation-delay: 2100ms; }
+        .bubble:nth-child(92) { left: 1%; animation-duration: 13000ms; animation-delay: 500ms; }
+        .bubble:nth-child(93) { left: 10%; animation-duration: 10600ms; animation-delay: 2800ms; }
+        .bubble:nth-child(94) { left: 23%; animation-duration: 8300ms; animation-delay: 1900ms; }
+        .bubble:nth-child(95) { left: 36%; animation-duration: 12400ms; animation-delay: 3100ms; }
+        .bubble:nth-child(96) { left: 49%; animation-duration: 11900ms; animation-delay: 1000ms; }
+        .bubble:nth-child(97) { left: 62%; animation-duration: 9000ms; animation-delay: 2600ms; }
+        .bubble:nth-child(98) { left: 75%; animation-duration: 10900ms; animation-delay: 300ms; }
+        .bubble:nth-child(99) { left: 88%; animation-duration: 13500ms; animation-delay: 3600ms; }
+        .bubble:nth-child(100) { left: 50%; animation-duration: 12100ms; animation-delay: 1500ms; }
+        .bubble:nth-child(101) { left: 3%; animation-duration: 9800ms; animation-delay: 2200ms; }
+        .bubble:nth-child(102) { left: 16%; animation-duration: 11500ms; animation-delay: 800ms; }
+        .bubble:nth-child(103) { left: 29%; animation-duration: 8600ms; animation-delay: 3100ms; }
+        .bubble:nth-child(104) { left: 42%; animation-duration: 12900ms; animation-delay: 1300ms; }
+        .bubble:nth-child(105) { left: 55%; animation-duration: 10200ms; animation-delay: 2800ms; }
+        .bubble:nth-child(106) { left: 68%; animation-duration: 9300ms; animation-delay: 600ms; }
+        .bubble:nth-child(107) { left: 81%; animation-duration: 11800ms; animation-delay: 3400ms; }
+        .bubble:nth-child(108) { left: 94%; animation-duration: 8900ms; animation-delay: 1700ms; }
+        .bubble:nth-child(109) { left: 7%; animation-duration: 13200ms; animation-delay: 2400ms; }
+        .bubble:nth-child(110) { left: 20%; animation-duration: 10700ms; animation-delay: 900ms; }
+        .bubble:nth-child(111) { left: 33%; animation-duration: 9100ms; animation-delay: 3600ms; }
+        .bubble:nth-child(112) { left: 46%; animation-duration: 12400ms; animation-delay: 1200ms; }
+        .bubble:nth-child(113) { left: 59%; animation-duration: 8400ms; animation-delay: 2900ms; }
+        .bubble:nth-child(114) { left: 72%; animation-duration: 11100ms; animation-delay: 500ms; }
+        .bubble:nth-child(115) { left: 85%; animation-duration: 9600ms; animation-delay: 3300ms; }
+        .bubble:nth-child(116) { left: 98%; animation-duration: 10500ms; animation-delay: 1800ms; }
+        .bubble:nth-child(117) { left: 11%; animation-duration: 13500ms; animation-delay: 2100ms; }
+        .bubble:nth-child(118) { left: 24%; animation-duration: 8200ms; animation-delay: 700ms; }
+        .bubble:nth-child(119) { left: 37%; animation-duration: 12000ms; animation-delay: 3700ms; }
+        .bubble:nth-child(120) { left: 50%; animation-duration: 9400ms; animation-delay: 1400ms; }
+        .bubble:nth-child(121) { left: 63%; animation-duration: 11300ms; animation-delay: 2600ms; }
+        .bubble:nth-child(122) { left: 76%; animation-duration: 10800ms; animation-delay: 300ms; }
+        .bubble:nth-child(123) { left: 89%; animation-duration: 8700ms; animation-delay: 3200ms; }
+        .bubble:nth-child(124) { left: 2%; animation-duration: 12600ms; animation-delay: 1600ms; }
+        .bubble:nth-child(125) { left: 15%; animation-duration: 9900ms; animation-delay: 2800ms; }
+        .bubble:nth-child(126) { left: 28%; animation-duration: 11600ms; animation-delay: 1000ms; }
+        .bubble:nth-child(127) { left: 41%; animation-duration: 8500ms; animation-delay: 3500ms; }
+        .bubble:nth-child(128) { left: 54%; animation-duration: 13100ms; animation-delay: 1900ms; }
+        .bubble:nth-child(129) { left: 67%; animation-duration: 10100ms; animation-delay: 2300ms; }
+        .bubble:nth-child(130) { left: 80%; animation-duration: 9200ms; animation-delay: 800ms; }
+        .bubble:nth-child(131) { left: 93%; animation-duration: 12300ms; animation-delay: 3900ms; }
+        .bubble:nth-child(132) { left: 6%; animation-duration: 11400ms; animation-delay: 1100ms; }
+        .bubble:nth-child(133) { left: 19%; animation-duration: 8800ms; animation-delay: 2700ms; }
+        .bubble:nth-child(134) { left: 32%; animation-duration: 10600ms; animation-delay: 400ms; }
+        .bubble:nth-child(135) { left: 45%; animation-duration: 13400ms; animation-delay: 3100ms; }
+        .bubble:nth-child(136) { left: 58%; animation-duration: 9700ms; animation-delay: 1500ms; }
+        .bubble:nth-child(137) { left: 71%; animation-duration: 11900ms; animation-delay: 2900ms; }
+        .bubble:nth-child(138) { left: 84%; animation-duration: 8300ms; animation-delay: 600ms; }
+        .bubble:nth-child(139) { left: 97%; animation-duration: 12700ms; animation-delay: 3400ms; }
+        .bubble:nth-child(140) { left: 10%; animation-duration: 10300ms; animation-delay: 1700ms; }
+        .bubble:nth-child(141) { left: 23%; animation-duration: 9000ms; animation-delay: 2200ms; }
+        .bubble:nth-child(142) { left: 36%; animation-duration: 11700ms; animation-delay: 900ms; }
+        .bubble:nth-child(143) { left: 49%; animation-duration: 13600ms; animation-delay: 3600ms; }
+        .bubble:nth-child(144) { left: 62%; animation-duration: 8600ms; animation-delay: 1200ms; }
+        .bubble:nth-child(145) { left: 75%; animation-duration: 10400ms; animation-delay: 2800ms; }
+        .bubble:nth-child(146) { left: 88%; animation-duration: 12200ms; animation-delay: 500ms; }
+        .bubble:nth-child(147) { left: 1%; animation-duration: 9500ms; animation-delay: 3300ms; }
+        .bubble:nth-child(148) { left: 14%; animation-duration: 11000ms; animation-delay: 1800ms; }
+        .bubble:nth-child(149) { left: 27%; animation-duration: 8900ms; animation-delay: 2400ms; }
+        .bubble:nth-child(150) { left: 40%; animation-duration: 13000ms; animation-delay: 700ms; }
+        .bubble:nth-child(151) { left: 53%; animation-duration: 10900ms; animation-delay: 3700ms; }
+        .bubble:nth-child(152) { left: 66%; animation-duration: 9300ms; animation-delay: 1400ms; }
+        .bubble:nth-child(153) { left: 79%; animation-duration: 12500ms; animation-delay: 2600ms; }
+        .bubble:nth-child(154) { left: 92%; animation-duration: 8100ms; animation-delay: 300ms; }
+        .bubble:nth-child(155) { left: 5%; animation-duration: 11200ms; animation-delay: 3200ms; }
+        .bubble:nth-child(156) { left: 18%; animation-duration: 10000ms; animation-delay: 1600ms; }
+        .bubble:nth-child(157) { left: 31%; animation-duration: 9600ms; animation-delay: 2900ms; }
+        .bubble:nth-child(158) { left: 44%; animation-duration: 12800ms; animation-delay: 1000ms; }
+        .bubble:nth-child(159) { left: 57%; animation-duration: 8400ms; animation-delay: 3500ms; }
+        .bubble:nth-child(160) { left: 70%; animation-duration: 11600ms; animation-delay: 1900ms; }
+        .bubble:nth-child(161) { left: 83%; animation-duration: 10200ms; animation-delay: 2300ms; }
+        .bubble:nth-child(162) { left: 96%; animation-duration: 9800ms; animation-delay: 800ms; }
+        .bubble:nth-child(163) { left: 9%; animation-duration: 13300ms; animation-delay: 3900ms; }
+        .bubble:nth-child(164) { left: 22%; animation-duration: 11400ms; animation-delay: 1100ms; }
+        .bubble:nth-child(165) { left: 35%; animation-duration: 8700ms; animation-delay: 2700ms; }
+        .bubble:nth-child(166) { left: 48%; animation-duration: 12100ms; animation-delay: 400ms; }
+        .bubble:nth-child(167) { left: 61%; animation-duration: 10500ms; animation-delay: 3100ms; }
+        .bubble:nth-child(168) { left: 74%; animation-duration: 9100ms; animation-delay: 1500ms; }
+        .bubble:nth-child(169) { left: 87%; animation-duration: 11800ms; animation-delay: 2900ms; }
+        .bubble:nth-child(170) { left: 99%; animation-duration: 8500ms; animation-delay: 600ms; }
+        .bubble:nth-child(171) { left: 12%; animation-duration: 12900ms; animation-delay: 3400ms; }
+        .bubble:nth-child(172) { left: 25%; animation-duration: 10700ms; animation-delay: 1700ms; }
+        .bubble:nth-child(173) { left: 38%; animation-duration: 9200ms; animation-delay: 2200ms; }
+        .bubble:nth-child(174) { left: 51%; animation-duration: 11100ms; animation-delay: 900ms; }
+        .bubble:nth-child(175) { left: 64%; animation-duration: 13700ms; animation-delay: 3600ms; }
+        .bubble:nth-child(176) { left: 77%; animation-duration: 8800ms; animation-delay: 1200ms; }
+        .bubble:nth-child(177) { left: 90%; animation-duration: 10300ms; animation-delay: 2800ms; }
+        .bubble:nth-child(178) { left: 4%; animation-duration: 12400ms; animation-delay: 500ms; }
+        .bubble:nth-child(179) { left: 17%; animation-duration: 9400ms; animation-delay: 3300ms; }
+        .bubble:nth-child(180) { left: 30%; animation-duration: 11500ms; animation-delay: 1800ms; }
+        .bubble:nth-child(181) { left: 43%; animation-duration: 8200ms; animation-delay: 2400ms; }
+        .bubble:nth-child(182) { left: 56%; animation-duration: 13200ms; animation-delay: 700ms; }
+        .bubble:nth-child(183) { left: 69%; animation-duration: 10800ms; animation-delay: 3700ms; }
+        .bubble:nth-child(184) { left: 82%; animation-duration: 9700ms; animation-delay: 1400ms; }
+        .bubble:nth-child(185) { left: 95%; animation-duration: 12600ms; animation-delay: 2600ms; }
+        .bubble:nth-child(186) { left: 8%; animation-duration: 8300ms; animation-delay: 300ms; }
+        .bubble:nth-child(187) { left: 21%; animation-duration: 11300ms; animation-delay: 3200ms; }
+        .bubble:nth-child(188) { left: 34%; animation-duration: 10100ms; animation-delay: 1600ms; }
+        .bubble:nth-child(189) { left: 47%; animation-duration: 9900ms; animation-delay: 2900ms; }
+        .bubble:nth-child(190) { left: 60%; animation-duration: 13100ms; animation-delay: 1000ms; }
+        .bubble:nth-child(191) { left: 73%; animation-duration: 8600ms; animation-delay: 3500ms; }
+        .bubble:nth-child(192) { left: 86%; animation-duration: 11900ms; animation-delay: 1900ms; }
+        .bubble:nth-child(193) { left: 26%; animation-duration: 10400ms; animation-delay: 2300ms; }
+        .bubble:nth-child(194) { left: 39%; animation-duration: 9000ms; animation-delay: 800ms; }
+        .bubble:nth-child(195) { left: 52%; animation-duration: 12300ms; animation-delay: 3900ms; }
+        .bubble:nth-child(196) { left: 65%; animation-duration: 11700ms; animation-delay: 1100ms; }
+        .bubble:nth-child(197) { left: 78%; animation-duration: 8900ms; animation-delay: 2700ms; }
+        .bubble:nth-child(198) { left: 91%; animation-duration: 10600ms; animation-delay: 400ms; }
+        .bubble:nth-child(199) { left: 13%; animation-duration: 13500ms; animation-delay: 3100ms; }
+        .bubble:nth-child(200) { left: 50%; animation-duration: 12000ms; animation-delay: 2000ms; }
+
+        @keyframes blow {
             0% {
-                transform: translate(0, 50px);
                 opacity: 0;
+                transform: translate(0, 0) scale(0.3);
             }
-            5% {
+            10% {
                 opacity: 1;
             }
-            50% {
-                transform: translate(20px, calc(-50vh - 25px));
-            }
-            95% {
+            90% {
                 opacity: 1;
             }
             100% {
-                transform: translate(0, calc(-100vh - 100px));
                 opacity: 0;
+                transform: translate(0, -100vh) scale(1.2);
             }
         }
-
-        @keyframes riseLeft {
-            0% {
-                transform: translate(0, 50px);
-                opacity: 0;
-            }
-            5% {
-                opacity: 1;
-            }
-            50% {
-                transform: translate(-20px, calc(-50vh - 25px));
-            }
-            95% {
-                opacity: 1;
-            }
-            100% {
-                transform: translate(0, calc(-100vh - 100px));
-                opacity: 0;
-            }
-        }
-
-        @keyframes riseCenter {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            5% {
-                opacity: 1;
-            }
-            95% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(calc(-100vh - 100px));
-                opacity: 0;
-            }
-        }
-
-        /* Individual bubble styles with varied properties */
-        .bubble:nth-child(4n+1) { left: 5%; animation-duration: 8s; animation-delay: 0s; width: 18px; height: 18px; animation-name: rise; }
-        .bubble:nth-child(4n+2) { left: 15%; animation-duration: 10s; animation-delay: 1s; width: 14px; height: 14px; animation-name: riseLeft; }
-        .bubble:nth-child(4n+3) { left: 25%; animation-duration: 7s; animation-delay: 2s; width: 16px; height: 16px; animation-name: riseCenter; }
-        .bubble:nth-child(4n) { left: 35%; animation-duration: 9s; animation-delay: 0.5s; width: 20px; height: 20px; animation-name: rise; }
-        
-        .bubble:nth-child(10n+1) { left: 8%; }
-        .bubble:nth-child(10n+2) { left: 18%; }
-        .bubble:nth-child(10n+3) { left: 28%; }
-        .bubble:nth-child(10n+4) { left: 38%; }
-        .bubble:nth-child(10n+5) { left: 48%; }
-        .bubble:nth-child(10n+6) { left: 58%; }
-        .bubble:nth-child(10n+7) { left: 68%; }
-        .bubble:nth-child(10n+8) { left: 78%; }
-        .bubble:nth-child(10n+9) { left: 88%; }
-        .bubble:nth-child(10n) { left: 98%; }
-
-        .bubble:nth-child(7n+1) { animation-delay: 0.2s; }
-        .bubble:nth-child(7n+2) { animation-delay: 1.4s; }
-        .bubble:nth-child(7n+3) { animation-delay: 2.8s; }
-        .bubble:nth-child(7n+4) { animation-delay: 0.9s; }
-        .bubble:nth-child(7n+5) { animation-delay: 2.1s; }
-        .bubble:nth-child(7n+6) { animation-delay: 3.5s; }
-        .bubble:nth-child(7n) { animation-delay: 1.7s; }
-
-        .bubble:nth-child(13n+1) { animation-duration: 7.5s; }
-        .bubble:nth-child(13n+2) { animation-duration: 9.5s; }
-        .bubble:nth-child(13n+3) { animation-duration: 11s; }
-        .bubble:nth-child(13n+4) { animation-duration: 8.5s; }
-        .bubble:nth-child(13n+5) { animation-duration: 10.5s; }
 
         #overlay {
             position: absolute;
@@ -144,6 +274,8 @@
             background: rgba(0, 0, 0, 0.85);
             z-index: 2;
         }
+
+
 
         .container {
             position: relative;
@@ -224,8 +356,27 @@
     </style>
 </head>
 <body>
-    <div id="bubbles">
-        <!-- 100 bubbles -->
+    <div class="bottom-particles">
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+        <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
         <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
         <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
         <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
