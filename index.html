@@ -257,7 +257,7 @@
         @keyframes blow {
             0% {
                 opacity: 0;
-                transform: translate(0, 0) scale(0.3);
+                transform: translate3d(0, 20px, 0) scale(0.3);
             }
             10% {
                 opacity: 1;
@@ -267,7 +267,24 @@
             }
             100% {
                 opacity: 0;
-                transform: translate(0, -100vh) scale(1.2);
+                transform: translate3d(0, -100vh, 0) scale(1.2);
+            }
+        }
+
+        @-webkit-keyframes blow {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 20px, 0) scale(0.3);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100vh, 0) scale(1.2);
             }
         }
 
@@ -411,5 +428,41 @@
         <img src="logo.png" alt="Tapstr Logo" class="logo">
         <h1 class="coming-soon">Coming Soon</h1>
     </div>
+
+    <script>
+        // Force animation start on page load for iOS
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var bubbles = document.querySelectorAll('.bubble');
+                bubbles.forEach(function(bubble) {
+                    bubble.style.animation = 'none';
+                    bubble.offsetHeight; // Trigger reflow
+                    bubble.style.animation = '';
+                });
+            }, 100);
+        });
+
+        // Force animation restart on iOS when page becomes visible
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                var bubbles = document.querySelectorAll('.bubble');
+                bubbles.forEach(function(bubble) {
+                    bubble.style.animation = 'none';
+                    bubble.offsetHeight; // Trigger reflow
+                    bubble.style.animation = '';
+                });
+            }
+        });
+
+        // Ensure animations start on page show
+        window.addEventListener('pageshow', function(event) {
+            var bubbles = document.querySelectorAll('.bubble');
+            bubbles.forEach(function(bubble) {
+                bubble.style.animation = 'none';
+                bubble.offsetHeight;
+                bubble.style.animation = '';
+            });
+        });
+    </script>
 </body>
 </html>
