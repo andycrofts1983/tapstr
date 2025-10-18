@@ -41,58 +41,55 @@
             background: radial-gradient(circle at 30% 30%, rgba(255, 223, 128, 0.9), rgba(232, 185, 70, 0.6));
             border-radius: 50%;
             position: absolute;
-            bottom: -100px;
+            top: 100vh;
             box-shadow: 0 0 20px rgba(232, 185, 70, 0.5);
             animation: rise linear infinite;
+            will-change: transform;
         }
 
         @keyframes rise {
             0% {
-                bottom: -100px;
+                transform: translate(0, 50px);
                 opacity: 0;
-                transform: translateX(0);
             }
             5% {
                 opacity: 1;
             }
             50% {
-                transform: translateX(20px);
+                transform: translate(20px, calc(-50vh - 25px));
             }
             95% {
                 opacity: 1;
             }
             100% {
-                bottom: 110vh;
+                transform: translate(0, calc(-100vh - 100px));
                 opacity: 0;
-                transform: translateX(0);
             }
         }
 
         @keyframes riseLeft {
             0% {
-                bottom: -100px;
+                transform: translate(0, 50px);
                 opacity: 0;
-                transform: translateX(0);
             }
             5% {
                 opacity: 1;
             }
             50% {
-                transform: translateX(-20px);
+                transform: translate(-20px, calc(-50vh - 25px));
             }
             95% {
                 opacity: 1;
             }
             100% {
-                bottom: 110vh;
+                transform: translate(0, calc(-100vh - 100px));
                 opacity: 0;
-                transform: translateX(0);
             }
         }
 
         @keyframes riseCenter {
             0% {
-                bottom: -100px;
+                transform: translateY(50px);
                 opacity: 0;
             }
             5% {
@@ -102,7 +99,7 @@
                 opacity: 1;
             }
             100% {
-                bottom: 110vh;
+                transform: translateY(calc(-100vh - 100px));
                 opacity: 0;
             }
         }
