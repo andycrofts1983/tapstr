@@ -22,45 +22,63 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .content {
-            position: relative;
+        .bottom-particles {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: #000;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
             z-index: 1;
-            padding: 20px;
-        }
-
-        .content::before {
-            content: '';
-            position: absolute;
-            top: var(--y);
-            left: var(--x);
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(232, 185, 70, 0.2), rgba(232, 185, 70, 0.1) 30%, transparent 60%);
-            width: 2400px;
-            height: 2400px;
-            opacity: 0;
-            transition: 0.5s, top 0s, left 0s;
             pointer-events: none;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
-        .content:hover::before {
-            opacity: 1;
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 223, 128, 1), rgba(232, 185, 70, 0.8));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(232, 185, 70, 0.8);
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
-        .content.mobile-active::before {
-            opacity: 1;
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0.3);
+            }
+            100% {
+                transform: translateY(calc(-100vh - 100px)) scale(1.2);
+            }
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2;
+        }
+
+        .container {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .logo {
@@ -70,8 +88,6 @@
             margin-bottom: 60px;
             animation: fadeIn 1.2s ease-out;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
-            z-index: 3;
-            position: relative;
         }
 
         .coming-soon {
@@ -83,8 +99,6 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease-out 1.2s forwards;
             text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.8);
-            z-index: 3;
-            position: relative;
         }
 
         @keyframes fadeIn {
@@ -117,11 +131,6 @@
             .coming-soon {
                 font-size: 2rem;
             }
-
-            .content::before {
-                width: 1600px;
-                height: 1600px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -134,60 +143,50 @@
                 font-size: 1.5rem;
                 letter-spacing: 0.05em;
             }
-
-            .content::before {
-                width: 1200px;
-                height: 1200px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="content">
+    <div class="bottom-particles" id="bubbles"></div>
+    
+    <div id="overlay"></div>
+    
+    <div class="container">
         <img src="logo.png" alt="Tapstr Logo" class="logo">
         <h1 class="coming-soon">Coming Soon</h1>
     </div>
 
     <script>
-        let content = document.querySelector('.content');
-        let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        // Create 200 bubbles with JavaScript for better control
+        const bubblesContainer = document.getElementById('bubbles');
+        const bubbleCount = 200;
         
-        if (isMobile) {
-            // Gyroscope-based control for mobile
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener('deviceorientation', function(e) {
-                    // Get device orientation
-                    let gamma = e.gamma; // Left to right tilt (-90 to 90)
-                    let beta = e.beta;   // Front to back tilt (-180 to 180)
-                    
-                    // Map tilt to screen coordinates
-                    // gamma: -90 (left) to 90 (right)
-                    // beta: -180 (back) to 180 (front)
-                    
-                    let x = (gamma + 90) * (window.innerWidth / 180);
-                    let y = (beta + 90) * (window.innerHeight / 180);
-                    
-                    // Clamp values to screen bounds
-                    x = Math.max(0, Math.min(window.innerWidth, x));
-                    y = Math.max(0, Math.min(window.innerHeight, y));
-                    
-                    content.style.setProperty('--x', x + 'px');
-                    content.style.setProperty('--y', y + 'px');
-                });
-                
-                // Make spotlight visible on mobile
-                content.style.setProperty('opacity', '1');
-                content.classList.add('mobile-active');
-            }
-        } else {
-            // Mouse control for desktop
-            content.onmousemove = function(e) {
-                let x = e.pageX;
-                let y = e.pageY;
-                content.style.setProperty('--x', x + 'px');
-                content.style.setProperty('--y', y + 'px');
-            };
+        const positions = [];
+        const durations = [];
+        const delays = [];
+        const opacities = [];
+        
+        // Generate random values
+        for (let i = 0; i < bubbleCount; i++) {
+            positions.push(Math.random() * 100);
+            durations.push(7000 + Math.random() * 7000); // 7-14 seconds
+            delays.push(Math.random() * 4000); // 0-4 seconds
+            opacities.push(0.1 + Math.random() * 0.8); // 0.1-0.9
         }
+        
+        // Create bubbles
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.style.left = positions[i] + '%';
+            bubble.style.opacity = opacities[i];
+            bubble.style.animation = `rise ${durations[i]}ms linear ${delays[i]}ms infinite`;
+            bubble.style.webkitAnimation = `rise ${durations[i]}ms linear ${delays[i]}ms infinite`;
+            bubblesContainer.appendChild(bubble);
+        }
+        
+        console.log('Created', bubbleCount, 'bubbles');
+        console.log('First bubble animation:', document.querySelector('.bubble').style.animation);
     </script>
 </body>
 </html>
